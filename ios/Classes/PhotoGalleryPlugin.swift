@@ -468,7 +468,7 @@ public class PhotoGalleryPlugin: NSObject, FlutterPlugin {
     let mimeType = self.extractMimeTypeFromAsset(asset: asset)
     let resource = self.extractResourceFromAsset(asset: asset)
     let size = self.extractSizeFromResource(resource: resource)
-    let orientation = self.toOrientationValue(orientation: asset.value(forKey: "orientation") as? UIImage.Orientation)
+    // let orientation = self.toOrientationValue(orientation: asset.value(forKey: "orientation") as? UIImage.Orientation)
     return [
       "id": asset.localIdentifier,
       "filename": filename,
@@ -478,7 +478,7 @@ public class PhotoGalleryPlugin: NSObject, FlutterPlugin {
       "height": asset.pixelHeight,
       "width": asset.pixelWidth,
       "size": size,
-      "orientation": orientation,
+      "orientation": 0,
       "duration": NSInteger(asset.duration * 1000),
       "creationDate": (asset.creationDate != nil) ? NSInteger(asset.creationDate!.timeIntervalSince1970 * 1000) : nil,
       "modifiedDate": (asset.modificationDate != nil) ? NSInteger(asset.modificationDate!.timeIntervalSince1970 * 1000) : nil
